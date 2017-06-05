@@ -38,7 +38,6 @@ int quick_sort(int a[], int l, int r) {
 }
 
 int main() {
-    adjust(a,0,9);
     quick_sort(a,0,9);
     for(int i=0;i<10;i++) {
         printf("%d ", a[i]);
