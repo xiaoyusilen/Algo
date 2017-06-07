@@ -30,7 +30,7 @@ int binary_search_recursion(int a[],int l,int r, int target) {
     if(a[mid]>target) {
         return binary_search_recursion(a,l,mid-1,target);
     } else if(a[mid]<target) {
-        return binary_search-recursion(a,mid+1,r,target);
+        return binary_search_recursion(a,mid+1,r,target);
     } else {
         return mid+1;
     }
