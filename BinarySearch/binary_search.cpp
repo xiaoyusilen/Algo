@@ -8,8 +8,8 @@ using namespace std;
 
 // 非递归
 int binary_search(int a[],int l,int r, int target) {
-    int mid=(l+r)/2;
     while(l<r) {
+        int mid=(l+r)/2;
         if(a[mid]>target) {
             r=mid-1;
         } else if(a[mid]<target) {
