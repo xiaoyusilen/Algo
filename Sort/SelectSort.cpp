@@ -17,10 +17,9 @@ int select_sort(int a[]) {
                 pos=j;
             }
         }
-        int swap;
-        swap=a[pos];
-        a[pos]=a[i];
-        a[i]=swap;
+        a[pos]=a[pos]^a[i];
+        a[i]=a[i]^a[pos];
+        a[pos]=a[pos]^a[i];
     }
     for(i=0;i<10;i++) {
         printf("%d ", a[i]);

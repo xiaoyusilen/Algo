@@ -11,10 +11,9 @@ int bubble_sort(int a[]) {
     for(i=0;i<10;i++) {
         for(j=i+1;j<10;j++) {
             if(a[i]>a[j]) {
-                int swap;
-                swap=a[i];
-                a[i]=a[j];
-                a[j]=swap;
+                a[i]=a[i]^a[j];
+                a[j]=a[j]^a[i];
+                a[i]=a[i]^a[j];
             }
         }
     }
@@ -31,10 +30,9 @@ int bubble_sort1(int a[]) {
         bool flag=true;
         for(j=i+1;j<10;j++) {
             if(a[i]>a[j]) {
-                int swap;
-                swap=a[i];
-                a[i]=a[j];
-                a[j]=swap;
+                a[i]=a[i]^a[j];
+                a[j]=a[j]^a[i];
+                a[i]=a[i]^a[j];
                 flag=false;
             }
         }
@@ -55,10 +53,9 @@ int bubble_sort2(int a[]) {
         bool flag=true;
         for(j=0;j<x;j++) {
             if(a[j]>a[j+1]) {
-                int swap;
-                swap=a[j];
-                a[j]=a[j+1];
-                a[j+1]=swap;
+                a[j]=a[j]^a[j+1];
+                a[j+1]=a[j+1]^a[j];
+                a[j]=a[j]^a[j+1];
                 k=j;
                 flag=false;
             }

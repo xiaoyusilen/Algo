@@ -3,24 +3,24 @@
 //
 
 #include <cstdio>
+#define N 10000
 using namespace std;
 
-int a[10]={3,2,10,4,1,9,6,7,8,5};
+int a[N]={0};
 
 int adjust(int a[], int l, int r) {
     int pos=r,i;
     for(i=l;i<r;i++) {
         if(a[i]>a[pos]&&i<pos) {
-            int swap=a[i];
-            a[i]=a[pos];
-            a[pos]=swap;
+            a[i]=a[i]^a[pos];
+            a[pos]=a[pos]^a[i];
+            a[i]=a[i]^a[pos];
             pos=i;
-
         }
         if(a[i]<a[pos]&&i>pos) {
-            int swap=a[i];
-            a[i]=a[pos];
-            a[pos]=swap;
+            a[i]=a[i]^a[pos];
+            a[pos]=a[pos]^a[i];
+            a[i]=a[i]^a[pos];
             pos=i;
         }
     }
@@ -38,8 +38,15 @@ int quick_sort(int a[], int l, int r) {
 }
 
 int main() {
-    quick_sort(a,0,9);
-    for(int i=0;i<10;i++) {
-        printf("%d ", a[i]);
+    int n;
+    while(~scanf("%d",&n)) {
+        int i;
+        for(i=0;i<n;i++) {
+            scanf("%d",&a[i]);
+        }
+        quick_sort(a,0,n-1);
+        for(i=0;i<n;i++) {
+            printf("%d ", a[i]);
+        }
     }
 }

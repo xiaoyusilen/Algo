@@ -15,10 +15,9 @@ int insert_sort(int a[]) {
                 min=a[j];
             }
         }
-        int swap;
-        swap=a[i];
-        a[i]=a[j];
-        a[j]=swap;
+        a[i]=a[i]^a[j];
+        a[j]=a[j]^a[i];
+        a[i]=a[i]^a[j];
     }
     for(i=0;i<10;i++) {
         printf("%d ",a[i]);
